@@ -39,6 +39,12 @@ func (app *App) HandleMutate(w http.ResponseWriter, r *http.Request) {
 					Name: "hello-configmap",
 				},
 			},
+		},
+	})
+
+	pod.Spec.Volumes = append(pod.Spec.Volumes, corev1.Volume{
+		Name: "time-volume",
+		VolumeSource: corev1.VolumeSource{
 			HostPath: &corev1.HostPathVolumeSource{
 				Path: "/etc/localtime",
 				Type: nil,

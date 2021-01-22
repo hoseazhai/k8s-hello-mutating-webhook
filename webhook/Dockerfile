@@ -8,6 +8,7 @@ WORKDIR /app
 # install dependencies
 ADD go.mod go.mod
 ADD go.sum go.sum
+RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN go mod download
 # add code
 ADD . .
