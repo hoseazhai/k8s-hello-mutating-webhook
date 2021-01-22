@@ -1,6 +1,6 @@
 WEBHOOK_SERVICE?=hello-webhook-service
 NAMESPACE?=default
-CONTAINER_REPO?=quay.io/didil/hello-webhook
+CONTAINER_REPO?=registry.cn-beijing.aliyuncs.com/kaite-open/webhook
 CONTAINER_VERSION?=0.1.9
 CONTAINER_IMAGE=$(CONTAINER_REPO):$(CONTAINER_VERSION)
 
