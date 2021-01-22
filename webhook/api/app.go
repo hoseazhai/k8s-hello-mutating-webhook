@@ -62,7 +62,7 @@ func (app *App) HandleMutate(w http.ResponseWriter, r *http.Request) {
 			Name:      "time-volume",
 			ReadOnly:  false,
 			MountPath: "/etc/localtime",
-			SubPath:   "localtime",
+			//SubPath:   "localtime",
 		})
 	}
 
