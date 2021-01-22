@@ -56,7 +56,7 @@ func (app *App) HandleMutate(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < len(pod.Spec.Containers); i++ {
 		pod.Spec.Containers[i].VolumeMounts = append(pod.Spec.Containers[i].VolumeMounts, corev1.VolumeMount{
 			Name:      "hello-volume",
-			MountPath: "/etc/config",
+			MountPath: "/usr/",
 		})
 		pod.Spec.Containers[i].VolumeMounts = append(pod.Spec.Containers[i].VolumeMounts, corev1.VolumeMount{
 			Name:      "time-volume",
