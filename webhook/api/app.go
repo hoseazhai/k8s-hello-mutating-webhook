@@ -39,6 +39,10 @@ func (app *App) HandleMutate(w http.ResponseWriter, r *http.Request) {
 					Name: "hello-configmap",
 				},
 			},
+			HostPath: &corev1.HostPathVolumeSource{
+				Path: "/etc/localtime",
+				Type: nil,
+			},
 		},
 	})
 
@@ -47,6 +51,12 @@ func (app *App) HandleMutate(w http.ResponseWriter, r *http.Request) {
 		pod.Spec.Containers[i].VolumeMounts = append(pod.Spec.Containers[i].VolumeMounts, corev1.VolumeMount{
 			Name:      "hello-volume",
 			MountPath: "/etc/config",
+		})
+		pod.Spec.Containers[i].VolumeMounts = append(pod.Spec.Containers[i].VolumeMounts, corev1.VolumeMount{
+			Name:      "time-volume",
+			ReadOnly:  false,
+			MountPath: "/etc/localtime",
+			SubPath:   "localtime",
 		})
 	}
 
